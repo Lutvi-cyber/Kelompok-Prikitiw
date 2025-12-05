@@ -75,3 +75,27 @@ def simpan_ke_file():
     except:
         print("Gagal menyimpan data ke file!")
 
+# =============================== PROGRAM UTAMA ================================
+
+while True:  # Perulangan
+    show_menu()
+    pilihan = input("Pilih menu: ")
+
+    if pilihan == "1":
+        tambah_tugas()
+    elif pilihan == "2":
+        lihat_tugas()
+    elif pilihan == "3":
+        edit_tugas()
+    elif pilihan == "4":
+        hapus_tugas()
+    elif pilihan == "5":
+        selesai_tugas()
+    elif pilihan == "6":
+        simpan_ke_file()
+    elif pilihan == "7":
+        print("Program selesai. Terima kasih!")
+        break
+    else:
+        print("Pilihan tidak valid, coba lagi!")
+
