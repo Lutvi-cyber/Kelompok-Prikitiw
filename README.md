@@ -30,3 +30,48 @@ def lihat_tugas():
         print("\n--- Daftar Tugas ---")
         for i, task in enumerate(tasks):
             print(f"{i+1}. {task['judul']} - {task['status']}")
+
+def edit_tugas():
+    lihat_tugas()
+    try:
+        index = int(input("Pilih nomor tugas yang ingin diedit: ")) - 1
+        if 0 <= index < len(tasks):
+            new_title = input("Masukkan judul baru: ")
+            tasks[index]["judul"] = new_title  # Operasi String
+            print("Tugas berhasil diperbarui.")
+        else:
+            print("Nomor tugas tidak valid!")
+    except ValueError:
+        print("Input harus angka!")
+
+def hapus_tugas():
+    lihat_tugas()
+    try:
+        index = int(input("Pilih nomor tugas yang ingin dihapus: ")) - 1
+        if 0 <= index < len(tasks):
+            tasks.pop(index)
+            print("Tugas berhasil dihapus!")
+        else:
+            print("Nomor tugas tidak valid!")
+    except:
+        print("Terjadi kesalahan saat menghapus tugas!")
+
+def selesai_tugas():
+    lihat_tugas()
+    try:
+        index = int(input("Pilih tugas yang sudah selesai: ")) - 1
+        tasks[index]["status"] = "Selesai"
+        print("Tugas berhasil ditandai selesai!")
+    except:
+        print("Nomor tidak valid!")
+
+def simpan_ke_file():
+    file_name = "todolist.txt"
+    try:
+        with open(file_name, "w") as file:
+            for task in tasks:
+                file.write(f"{task['judul']} - {task['status']}\n")
+        print(f"Tugas disimpan ke file {file_name}")
+    except:
+        print("Gagal menyimpan data ke file!")
+
