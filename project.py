@@ -1,6 +1,3 @@
-# Kelompok-Prikitiw
-#PROJECT TO DO LIST/TASK MANAGER
-
 # ========================== TO DO LIST / TASK MANAGER ==========================
 
 tasks = []  # Collection Framework (List)
